@@ -5,12 +5,16 @@ import './App.css'
 import ReadTheDocs from './ReadTheDocs'
 
 function CountWidget({ valueToShow, suffix }) { 
-  return (<div>count is {valueToShow}, {suffix}</div>)
+  return (
+    <div>
+      count is {valueToShow}, {suffix}
+    </div>
+  )
 }
 
 function CountButton({ count, buttonIsClicked }) {
   return (
-    <button onClick={buttonIsClicked}>
+    <button className="count-button" onClick={buttonIsClicked}>
       <CountWidget valueToShow={count} />
     </button>
   )
@@ -18,6 +22,9 @@ function CountButton({ count, buttonIsClicked }) {
 
 function App() {
   const [count, setCount] = useState(0)
+
+  function decrementCount() {  return setCount((count) => count - 1) }
+  const incrementCount = () => setCount((count) => count + 1)
 
   return (
     <>
@@ -31,12 +38,12 @@ function App() {
       </div>
       <h1>Vite + React + InceptionU</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={incrementCount}>
           <CountWidget valueToShow={count} suffix="POWER UP!" />
         </button>
         <CountButton 
           count={count} 
-          buttonIsClicked={() => setCount((count) => count - 1)} 
+          buttonIsClicked={decrementCount} 
         />
         <CountWidget valueToShow={count} suffix="man!"/>
         <CountWidget valueToShow={3} suffix="woo hoo!"/>
