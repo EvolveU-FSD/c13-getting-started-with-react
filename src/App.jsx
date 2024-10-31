@@ -5,40 +5,19 @@ import './App.css'
 import ReadTheDocs from './ReadTheDocs'
 
 function CountWidget({ valueToShow, suffix }) { 
-  // const candy = "apple";
-  // const [costume, setCostume] = useState();
   const [candy, setCandy] = useState("apple");
-  // const [street, setStreet] = useState({address: "1t12g24g", trickOrTreat: true});
-  // setCostume("vampire")
-  // function swapCandy() {
-  //   if(candy === "apple"){
-  //     return "chocolate";
-  //   } else if(candy === "chocolate"){
-  //     return "apple";
-  //   }
-  // }
+ 
   return (
     <div>
       count is {valueToShow}, {suffix}
       <p>I ate so much candy!: {candy}</p>
-      {/* <button onClick={() => let newCandy=swapCandy(); setCandy(newCandy)}> */}
       <button onClick={() => setCandy(
        candy==="apple"? "chocolate":candy==="chocolate"? "apple": "chocolate")}>
         		Click me to add candy!
       </button>
-
-      {/* <Halloween></Halloween> */}
     </div>
   )
 }
-
-// function Halloween(){
-//   return(
-//     <p>
-//       halloween is awesome {candy}
-//     </p>
-//   )
-// }
 
 function CountButton({ count, buttonIsClicked }) {
   return (
